@@ -81,45 +81,23 @@
             </div>
         </div>
         <ul class="clubs">
-            <li class="clubs__item">
-                <div class="club">
-                    <div class="club__image club__image--fence"></div>
-                    <div class="club__content">
-                        <div class="club__title">
-                            <h4>Иностранные языки</h4>
+            {% if news %}
+                {% for el in news %}
+                <li class="clubs__item">
+                    <div class="club">
+                        <div class="club__image club__image--fence" style="background-image: url( {{ el.image.url }} )"></div>
+                        <div class="club__content">
+                            <div class="club__title">
+                                <h4>{{ el.title }}</h4>
+                            </div>
+                            <p class="club__text">{{ el.full_text }}</p>
+                            <button type="button" class="btn btn-outline-primary" onclick="location.href='' ">Подробнее
+                            </button>
                         </div>
-                        <p class="club__text">Ваши дети будут изучать разные языки, играя и развлекаясь, а также
-                            погружаться в атмосферу других культур. </p>
-                        <button type="button" class="btn btn-outline-primary" onclick="location.href='' ">Подробнее
-                        </button>
                     </div>
-                </div>
-            </li>
-            <li class="clubs__item">
-                <div class="club">
-                    <div class="club__image club__image--river"></div>
-                    <div class="club__content">
-                        <div class="club__title"><h4>Кружки</h4></div>
-                        <p class="club__text">Кружки в детском саду - это увлекательные занятия, которые помогают
-                            развивать творческие и познавательные способности малышей.</p>
-                        <button type="button" class="btn btn-outline-primary" onclick="location.href='' ">Подробнее
-                        </button>
-                    </div>
-                </div>
-            </li>
-            <li class="clubs__item">
-                <div class="club">
-                    <div class="club__image club__image--record"></div>
-                    <div class="club__content">
-                        <div class="club__title"><h4>Логопедия</h4></div>
-                        <p class="club__text">В нашем детском саду регулярно проводятся логопедические занятия с
-                            детьми.</p>
-                        <button type="button" class="btn btn-outline-primary"
-                                onclick="location.href='' ">Подробнее
-                        </button>
-                    </div>
-                </div>
-            </li>
+                </li>
+                {% endfor %}
+            {% endif %}
         </ul>
     </div>
     {#  News Block  #}
@@ -149,7 +127,8 @@
                     <div class="club__image club__image__two"></div>
                     <div class="club__content">
                         <div class="club__title"><h4>Кружки</h4></div>
-                        <p class="club__text">Шахматы, танцы и многое другое - это то, что мы предлагаем нашим воспитанникам.</p>
+                        <p class="club__text">Шахматы, танцы и многое другое - это то, что мы предлагаем нашим
+                            воспитанникам.</p>
                     </div>
                 </div>
             </li>
