@@ -85,14 +85,13 @@
                 {% for el in news %}
                 <li class="clubs__item">
                     <div class="club">
-                        <div class="club__image club__image--fence" style="background-image: url( {{ el.image.url }} )"></div>
+                        <div class="club__image" style="background-image: url( {{ el.image.url }} )"></div>
                         <div class="club__content">
                             <div class="club__title">
                                 <h4>{{ el.title }}</h4>
                             </div>
                             <p class="club__text">{{ el.full_text }}</p>
-                            <button type="button" class="btn btn-outline-primary" onclick="location.href='' ">Подробнее
-                            </button>
+                            <a href="{% url 'news_detail' el.id %}" class="btn btn-outline-primary">Читать подробнее</a>
                         </div>
                     </div>
                 </li>

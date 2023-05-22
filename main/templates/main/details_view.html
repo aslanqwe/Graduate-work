@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ article.title }}</h1>
+        <img src="{{ article.image.url }}" alt="Article Image" style="max-width: 100%; max-height: 300px">
+        <p>{{ article.full_text }}</p>
+        <p>{{ article.date }}</p>
+    </div>
+{% endblock %}
