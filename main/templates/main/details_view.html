@@ -3,10 +3,25 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h1>{{ article.title }}</h1>
-        <img src="{{ article.image.url }}" alt="Article Image" style="max-width: 100%; max-height: 300px">
-        <p>{{ article.full_text }}</p>
-        <p>{{ article.date }}</p>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h1 class="text-center">{{ article.title }}</h1>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
+                <a href="#">
+                    <img src="{{ article.image.url }}" alt="Article Img" style="margin:5px; max-width: 100%; max-height: 600px" >
+                </a>
+            </div>
+            <div class="col-md-8 col-sm-12">
+                <p>{{ article.full_text }}</p>
+                <p style="text-align: right;">
+                    <a href="#" class="btn btn-outline-danger">Редактировать</a>
+                </p>
+                <p>Дата публикации: {{ article.date }}</p>
+            </div>
+        </div>
     </div>
 {% endblock %}

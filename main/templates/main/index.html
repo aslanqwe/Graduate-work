@@ -83,19 +83,22 @@
         <ul class="clubs">
             {% if news %}
                 {% for el in news %}
-                <li class="clubs__item">
-                    <div class="club">
-                        <div class="club__image" style="background-image: url( {{ el.image.url }} )"></div>
-                        <div class="club__content">
-                            <div class="club__title">
-                                <h4>{{ el.title }}</h4>
+                    <li class="clubs__item">
+                        <div class="club">
+                            <div class="club__image" style="background-image: url( {{ el.image.url }} )"></div>
+                            <div class="club__content">
+                                <div class="club__title">
+                                    <h4>{{ el.title }}</h4>
+                                </div>
+                                <p class="club__text">{{ el.full_text }}</p>
+                                <a href="{% url 'news_detail' el.id %}" class="btn btn-outline-primary">Читать
+                                    подробнее</a>
                             </div>
-                            <p class="club__text">{{ el.full_text }}</p>
-                            <a href="{% url 'news_detail' el.id %}" class="btn btn-outline-primary">Читать подробнее</a>
                         </div>
-                    </div>
-                </li>
+                    </li>
                 {% endfor %}
+            {% else %}
+                <h4>У вас нет новостей!</h4>
             {% endif %}
         </ul>
     </div>
