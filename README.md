@@ -1,1 +1,1 @@
-# Do web-site with using Django framework
+# Doing web-site with using Django framework
