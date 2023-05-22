@@ -95,8 +95,6 @@ a:hover {
     overflow: hidden;
     box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
     border-radius: 1em;
-
-
 }
 
 .card__body {
@@ -251,3 +249,8 @@ a:hover {
 .club__image--record {
   background-image: url("https://static.tildacdn.com/tild6331-3239-4631-b061-653730373139/speech-therpay-med.jpg");
 }*/
+
+.news{
+    box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+}
