@@ -1,2 +1,169 @@
 {% extends 'base.html' %}
-{% block title %}{{ title }} {% endblock %}
+{% load static %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    {#  Carousel  #}
+    <div class="container pt-5">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'main/images/img1.png' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'main/images/img2.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'main/images/img3.jpg' %}" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    {#Carousel#}
+
+    {#Director Words#}
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h4 class="underline">Приветственное слово директора</h4>
+            </div>
+        </div>
+        <div class="row pt-3">
+            <div class="col-md-4 col-sm-12">
+                <a href="#">
+                    <img width="350" class="img-fluid" src="{% static 'main/images/noavatar.png' %}" height="410"
+                         title="Директор" alt="Директор" style="margin:5px;">
+                </a>
+            </div>
+            <div class="col-md-8 col-sm-12">
+                <p><strong>Дорогие родители, коллеги и гости!</strong></p>
+                <p>Мы приветствуем Вас на сайте ТОО Детский сад «ДиАми».</p>
+                <p>Мы предлагаем разнообразную программу занятий, в том числе и игровых, которые способствуют развитию
+                    умственных и физических навыков, усвоению знаний и социализации. </p>
+                <p>Детский сад «ДиАми»&nbsp;- это место, где Ваш ребенок найдет заботу, внимание и развивающую среду для
+                    полноценного роста и развития.</p>
+                <p>Мы создали уютную и безопасную атмосферу, где каждый малыш чувствует себя комфортно.</p>
+                <p>Наша команда профессиональных педагогов и воспитателей заботится о том, чтобы каждый ребенок получал
+                    индивидуальный подход и развивался в соответствии со своими способностями.</p>
+                <p>Приходите к нам в гости и убедитесь в том, что детский сад "ДиАми" - это лучшее место для Вашего
+                    ребенка!</p>
+                <p style="text-align: right;">
+                    <a href="#" class="text-primary">Подробнее</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    {#Director Words#}
+
+    {#  News Block  #}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h4 class="underline">Новости</h4>
+            </div>
+        </div>
+        <ul class="clubs">
+            <li class="clubs__item">
+                <div class="club">
+                    <div class="club__image club__image--fence"></div>
+                    <div class="club__content">
+                        <div class="club__title">
+                            <h4>Иностранные языки</h4>
+                        </div>
+                        <p class="club__text">Ваши дети будут изучать разные языки, играя и развлекаясь, а также
+                            погружаться в атмосферу других культур. </p>
+                        <button type="button" class="btn btn-outline-primary" onclick="location.href='' ">Подробнее
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li class="clubs__item">
+                <div class="club">
+                    <div class="club__image club__image--river"></div>
+                    <div class="club__content">
+                        <div class="club__title"><h4>Кружки</h4></div>
+                        <p class="club__text">Кружки в детском саду - это увлекательные занятия, которые помогают
+                            развивать творческие и познавательные способности малышей.</p>
+                        <button type="button" class="btn btn-outline-primary" onclick="location.href='' ">Подробнее
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li class="clubs__item">
+                <div class="club">
+                    <div class="club__image club__image--record"></div>
+                    <div class="club__content">
+                        <div class="club__title"><h4>Логопедия</h4></div>
+                        <p class="club__text">В нашем детском саду регулярно проводятся логопедические занятия с
+                            детьми.</p>
+                        <button type="button" class="btn btn-outline-primary"
+                                onclick="location.href='' ">Подробнее
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    {#  News Block  #}
+
+    {#  Clubs  #}
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-md-12 col-sm-12">
+                <h4 class="underline">Что предлагает наш детский сад?</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <ul class="clubs">
+            <li class="clubs__item">
+                <div class="club">
+                    <div class="club__image club__image__one"></div>
+                    <div class="club__content">
+                        <div class="club__title"><h4>Иностранные языки</h4></div>
+                        <p class="club__text">Ваши дети будут изучать разные языки, играя и развлекаясь, а также
+                            погружаться в атмосферу других культур. </p>
+                    </div>
+                </div>
+            </li>
+            <li class="clubs__item">
+                <div class="club">
+                    <div class="club__image club__image__two"></div>
+                    <div class="club__content">
+                        <div class="club__title"><h4>Кружки</h4></div>
+                        <p class="club__text">Шахматы, танцы и многое другое - это то, что мы предлагаем нашим воспитанникам.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="clubs__item">
+                <div class="club">
+                    <div class="club__image club__image__three"></div>
+                    <div class="club__content">
+                        <div class="club__title"><h4>Логопедия</h4></div>
+                        <p class="club__text">В нашем детском саду регулярно проводятся логопедические занятия с
+                            детьми.</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    {#  Clubs  #}
+{% endblock %}
