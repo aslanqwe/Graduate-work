@@ -82,7 +82,7 @@
         </div>
         <ul class="clubs">
             {% if news %}
-                {% for el in news %}
+                {% for el in news|slice:":3" %}
                     <li class="clubs__item">
                         <div class="club">
                             <div class="club__image" style="background-image: url( {{ el.image.url }} )"></div>

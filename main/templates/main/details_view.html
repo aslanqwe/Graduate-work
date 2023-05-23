@@ -20,11 +20,6 @@
             <div class="col-md-12 col-sm-12 pt-3">
                 <p>{{ article.full_text }}</p>
             </div>
-            <div class="col-md-12 col-sm-12 d-flex justify-content-end ">
-                <p class="text-right align-self-end">
-                    <a href="{% url 'news_edit' pk=article.pk %}" class="btn btn-outline-primary">Редактировать</a>
-                </p>
-            </div>
         </div>
     </div>
 {% endblock %}
