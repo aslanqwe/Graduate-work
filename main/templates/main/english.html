@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ title }} {% endblock %}
 
-</body>
-</html>
+{% block content %}
+<div class="container pt-5 d-flex flex-column min-vh-100">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h4 class="underline">{{ title }}</h4>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-4 col-sm-12 ">
+            <img class="img-fluid" src="{{ english.image.url }}" alt="Иностранный язык"
+                 style="max-width: 100%; height: auto">
+        </div>
+        <div class="col-md-8 col-sm-12 ">
+            <p>
+                {{ english.full_text|linebreaks }}
+            </p>
+        </div>
+        <div class="col-md-12 col-sm-12">
+            <p>
+                {{ english.disc_text|linebreaks }}
+            </p>
+            <h1><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -27,3 +27,14 @@ class Director(models.Model):
     class Meta:
         verbose_name = 'Директор'
         verbose_name_plural = 'Директор'
+
+class English(models.Model):
+    name_language = models.CharField('Язык', blank=False, null=False, max_length=30)
+    full_text = models.TextField('Описание кружка', validators = [MinLengthValidator(10, 'Введите больше 10 символов')], blank=False, null=False)
+    disc_text = models.TextField('Доп.описание', validators = [MinLengthValidator(10, 'Введите больше 10 символов')], blank=False, default='')
+    image = models.ImageField('Изображение', upload_to='images/', default='')
+    def __str__(self):
+        return self.name_language
+    class Meta:
+        verbose_name = 'Иностранный язык'
+        verbose_name_plural = 'Иностранные языки'

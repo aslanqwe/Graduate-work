@@ -5,7 +5,7 @@ from django.views.generic import DetailView, UpdateView
 from .forms import ArticlesForm
 from .models import Articles
 from .models import Director
-
+from .models import English
 
 def index(request):
     news = Articles.objects.order_by('-date')
@@ -29,3 +29,6 @@ class NewsDetailView(DetailView):
         context['title'] = 'Новости'
         return context
 
+def english(request):
+    english = English.objects.first()
+    return render(request, 'main/english.html', {'title': 'Иностранные языки', 'english': english})
