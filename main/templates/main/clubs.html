@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
 {% block title %}{{ title }} {% endblock %}
+
+{% block header %}
+   {% include 'include/header.html' with clubs=clubs %}
+{% endblock %}
 
 {% block content %}
 <div class="container pt-5 d-flex flex-column min-vh-100">
@@ -11,17 +17,17 @@
     </div>
     <div class="row pt-3">
         <div class="col-md-4 col-sm-12 ">
-            <img class="img-fluid" src="{{ english.image.url }}" alt="Иностранный язык"
+            <img class="img-fluid" src="{{ clubs.image.url }}" alt="Кружок"
                  style="max-width: 100%; height: auto">
         </div>
         <div class="col-md-8 col-sm-12 ">
             <p>
-                {{ english.full_text|linebreaks }}
+                {{ clubs.full_text|linebreaks }}
             </p>
         </div>
         <div class="col-md-12 col-sm-12">
             <p>
-                {{ english.disc_text|linebreaks }}
+                {{ clubs.disc_text|linebreaks }}
             </p>
             <h1><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
         </div>

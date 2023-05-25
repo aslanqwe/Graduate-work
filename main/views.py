@@ -1,16 +1,21 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
-from django.views.generic import DetailView, UpdateView
+from django.shortcuts import render
+from django.views.generic import DetailView
 
-from .forms import ArticlesForm
+
 from .models import Articles
 from .models import Director
-from .models import English
+from .models import Clubs
+
 
 def index(request):
     news = Articles.objects.order_by('-date')
     director = Director.objects.first()
-    return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news, 'director': director})
+    clubs = Clubs.objects.all()
+    return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news, 'director': director, 'clubs': clubs})
+
+def forParents(request):
+    clubs = Clubs.objects.all()
+    return render(request, 'include/header.html', {'clubs': clubs})
 
 def about(request):
     return render(request, 'main/about.html', {'title': 'О нас'})
@@ -29,6 +34,14 @@ class NewsDetailView(DetailView):
         context['title'] = 'Новости'
         return context
 
-def english(request):
-    english = English.objects.first()
-    return render(request, 'main/english.html', {'title': 'Иностранные языки', 'english': english})
+class ClubsDetailView(DetailView):
+    model = Clubs
+    template_name = 'main/clubs.html'
+    context_object_name = 'clubs'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.object.name_clubs
+        return context
+
+
