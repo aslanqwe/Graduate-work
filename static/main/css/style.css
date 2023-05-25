@@ -47,6 +47,7 @@ a:hover {
     cursor: pointer;
     width: 44px;
     height: 44px;
+    z-index: 9999;
 }
 
 .btn-up::before {
@@ -115,18 +116,7 @@ a:hover {
     margin-top: auto;
 }
 
-.user {
-    display: flex;
-    gap: .5rem;
-}
 
-.user__image {
-    border-radius: 50%;
-}
-
-.user__info>small {
-    color: #666;
-}
 
 /* Новости */
 

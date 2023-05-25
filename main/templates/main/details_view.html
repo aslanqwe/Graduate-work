@@ -3,23 +3,23 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-    <div class="container mt-5 news">
-            <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <h1 class="text-center">{{ article.title }}</h1>
-                <p class="text-left"><i class="fa-sharp fa-solid fa-clock"></i> Дата публикации: {{ article.date }}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
-                <a href="#">
-                    <img src="{{ article.image.url }}" class="img-fluid" alt="Article Img"
-                         style="margin:5px; max-width: 100%; max-height: 600px">
-                </a>
-            </div>
-            <div class="col-md-12 col-sm-12 pt-3">
-                <p>{{ article.full_text }}</p>
-            </div>
+<div class="container mt-5 news">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 p-5">
+            <h1 class="text-center">{{ article.title }}</h1>
+            <p class="text-left"><i class="fa-sharp fa-solid fa-clock"></i> Дата публикации: {{ article.date }}</p>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
+            <a href="#">
+                <img src="{{ article.image.url }}" class="img-fluid" alt="Article Img"
+                     style="margin:5px; max-width: 100%; max-height: 600px">
+            </a>
+        </div>
+        <div class="col-md-12 col-sm-12 pt-3 p-5">
+            <p style="word-wrap: break-word;">{{ article.full_text }}</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

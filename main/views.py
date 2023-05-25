@@ -4,14 +4,20 @@ from django.views.generic import DetailView, UpdateView
 
 from .forms import ArticlesForm
 from .models import Articles
+from .models import Director
 
 
 def index(request):
     news = Articles.objects.order_by('-date')
-    return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news})
+    director = Director.objects.first()
+    return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news, 'director': director})
 
 def about(request):
     return render(request, 'main/about.html', {'title': 'О нас'})
+
+def director(request):
+    director = Director.objects.first()
+    return render(request, 'main/director.html', {'title': 'Приветственное слово директора', 'director': director})
 
 class NewsDetailView(DetailView):
     model = Articles

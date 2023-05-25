@@ -17,3 +17,13 @@ class Articles(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+
+class Director(models.Model):
+    full_name = models.CharField('ФИО', blank=False, null=False, max_length=70)
+    full_text = models.TextField('Приветственная речь', validators = [MinLengthValidator(10, 'Введите больше 10 символов')], blank=False, null=False)
+    image = models.ImageField('Ваше изображение', upload_to='images/', default='')
+    def __str__(self):
+        return self.full_name
+    class Meta:
+        verbose_name = 'Директор'
+        verbose_name_plural = 'Директор'
