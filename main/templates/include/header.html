@@ -17,9 +17,9 @@
                         Родителям
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li>
-                            <a class="dropdown-item" href="#">Питание</a>
-                        </li>
+                        {% for x in roditeli %}
+                            <li><a class="dropdown-item" href="{% url 'for_parents' x.id %}">{{ x.title }}</a></li>
+                        {% endfor %}
                     </ul>
                 </li>
                 <li class="nav-item dropdown">

@@ -61,6 +61,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'main.context_clubs.krujki',
+                'main.context_forparents.forparents',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',

@@ -11,7 +11,8 @@ def index(request):
     news = Articles.objects.order_by('-date')
     director = Director.objects.first()
     clubs = Clubs.objects.all()
-    return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news, 'director': director, 'clubs':clubs})
+    forparents = ForParents.objects.all()
+    return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news, 'director': director, 'clubs': clubs, 'forparents': forparents})
 
 def about(request):
     return render(request, 'main/about.html', {'title': 'О нас'})
@@ -28,8 +29,8 @@ def clubs_detail(request, pk):
     return render(request, 'main/clubs.html', {'title': clubs.name_clubs, 'clubs': clubs,})
 
 def for_parents(request, pk):
-    forparents = ForParents.objects.get(pk)
-    return render(request, 'main/forparents.html')
+    forparents = ForParents.objects.get(pk=pk)
+    return render(request, 'main/forparents.html', {'title': forparents.title, 'forparents': forparents})
 
 
 

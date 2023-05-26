@@ -59,8 +59,10 @@ class ForParents(models.Model):
     full_text = models.TextField('Описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
                                  blank=False, null=False)
     disc_text = models.TextField('Доп.описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
-                                 blank=False, default='')
-    image = models.ImageField('Изображение', upload_to='images/', default='')
+                                 blank=True, default='')
+    image = models.ImageField('Изображение', upload_to='images/', blank=True)
+    def __str__(self):
+        return self.title
     def get_absolute_url(self):
         return f'/forparents/{self.id}'
 
