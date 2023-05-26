@@ -5,43 +5,51 @@ from django.views.generic import DetailView
 from .models import Articles
 from .models import Director
 from .models import Clubs
-
+from .models import ForParents
 
 def index(request):
     news = Articles.objects.order_by('-date')
     director = Director.objects.first()
     clubs = Clubs.objects.all()
-    return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news, 'director': director, 'clubs': clubs})
-
-def forParents(request):
-    clubs = Clubs.objects.all()
-    return render(request, 'include/header.html', {'clubs': clubs})
+    return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news, 'director': director, 'clubs':clubs})
 
 def about(request):
     return render(request, 'main/about.html', {'title': 'О нас'})
+def detail_view(request, pk):
+    article = Articles.objects.get(pk=pk)
+    return render(request, 'main/details_view.html', {'title': 'Новости', 'article': article})
 
 def director(request):
     director = Director.objects.first()
-    return render(request, 'main/director.html', {'title': 'Приветственное слово директора', 'director': director})
+    return render(request, 'main/director.html', {'title': 'Приветственное слово директора', 'director': director, })
 
-class NewsDetailView(DetailView):
-    model = Articles
-    template_name = 'main/details_view.html'
-    context_object_name = 'article'
+def clubs_detail(request, pk):
+    clubs = Clubs.objects.get(pk=pk)
+    return render(request, 'main/clubs.html', {'title': clubs.name_clubs, 'clubs': clubs,})
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Новости'
-        return context
+def for_parents(request, pk):
+    forparents = ForParents.objects.get(pk)
+    return render(request, 'main/forparents.html')
 
-class ClubsDetailView(DetailView):
-    model = Clubs
-    template_name = 'main/clubs.html'
-    context_object_name = 'clubs'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = self.object.name_clubs
-        return context
+
+# class NewsDetailView(DetailView):
+#     model = Articles
+#     template_name = 'main/details_view.html'
+#     context_object_name = 'article'
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['title'] = 'Новости'
+#         return context
+
+# class ClubsDetailView(DetailView):
+#     model = Clubs
+#     template_name = 'main/clubs.html'
+#     context_object_name = 'clubs_kids'
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['title'] = self.object.name_clubs
+#         return context
 
 
