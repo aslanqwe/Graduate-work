@@ -14,13 +14,16 @@ def index(request):
     clubs = Clubs.objects.all()
     forparents = ForParents.objects.all()
     return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news, 'director': director, 'clubs': clubs, 'forparents': forparents})
-
 def about(request):
     about = About.objects.first()
     return render(request, 'main/about.html', {'title': 'О нас', 'about': about})
 def detail_view(request, pk):
     article = Articles.objects.get(pk=pk)
     return render(request, 'main/details_view.html', {'title': 'Новости', 'article': article})
+def blog(request):
+    blog = Articles.objects.order_by('-date')
+    return render(request, 'main/blog.html', {'title': 'Новости', 'blog': blog})
+
 
 def director(request):
     director = Director.objects.first()

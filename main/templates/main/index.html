@@ -83,9 +83,10 @@
                                 <div class="club__title">
                                     <h4>{{ el.title }}</h4>
                                 </div>
-                                <p class="club__text">{{ el.full_text|truncatechars:150|linebreaks }}</p>
-                                <a href="{% url 'news_detail' el.id %}" class="btn btn-outline-primary">Читать
-                                    подробнее</a>
+                                <span class="club__text">
+                                    {{ el.full_text|truncatechars:150|linebreaks }}
+                                </span>
+                                <a href="{% url 'news_detail' el.id %}" class="btn btn-outline-primary">Читать подробнее</a>
                             </div>
                         </div>
                     </li>
@@ -111,12 +112,12 @@
                 {% for el in clubs|slice:":3" %}
                     <li class="clubs__item">
                         <div class="club">
-                            <div class="club__image" style="background-image: url( {{ el.image.url }} )"></div>
+                            <div class="club__image" style="max-width: 100%; height: auto; background-image: url( {{ el.image.url }} )"></div>
                             <div class="club__content">
                                 <div class="club__title">
                                     <h4>{{ el.name_clubs }}</h4>
                                 </div>
-                                <p class="club__text">{{ el.full_text|truncatechars:150|linebreaks }}</p>
+                                <span class="club__text">{{ el.full_text|truncatechars:150|linebreaks }}</span>
                                 <a href="{% url 'clubs_detail' el.id %}" class="btn btn-outline-primary">Читать
                                     подробнее</a>
                             </div>

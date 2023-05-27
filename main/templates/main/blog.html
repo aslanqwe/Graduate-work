@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+<!--{% load static %}-->
+{% block title %} {{ title }} {% endblock %}
+
+<!--<p class="text-left"><i class="fa-sharp fa-solid fa-clock"></i> Дата публикации: {{ article.date }}</p>-->
+{% block content %}
+<div class="container pt-5 d-flex flex-column min-vh-100">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h4 class="underline">{{ title }}</h4>
+        </div>
+    </div>
+    {% if blog %}
+        {% for el in blog %}
+        <div class="row pt-3">
+            <div class="col-md-4 col-sm-12 ">
+                <img class="img-fluid" src="{{ el.image.url }}" alt="Новости"
+                 style="max-width: 100%; height: auto">
+            </div>
+            <div class="col-md-8 col-sm-12 ">
+                <h3>
+                    <strong>
+                        <span style="color: #008484;">
+                            {{ el.title }}
+                        </span>
+                    </strong>
+                </h3>
+                <p class="text-left"><i class="fa-sharp fa-solid fa-clock" style="color: #008484"></i> Дата публикации: {{ el.date }}</p>
+                <p>
+                    {{ el.full_text|truncatechars:500|linebreaks }}
+                </p>
+                <p style="text-align: left;">
+                    <a href="{% url 'news_detail' el.id %}" class="text-primary">Подробнее</a>
+                </p>
+            </div>
+            <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h3 class="text-center">
+            <strong>
+                <span style="color: #008484;">
+                    Нет новостей
+                </span>
+            </strong>
+        </h3>
+    {% endif %}
+</div>
+{% endblock %}
