@@ -40,7 +40,8 @@ class About(models.Model):
                                  blank=False, null=False)
     disc_text = models.TextField('Доп.описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
                                  blank=True, default='')
-    image = models.ImageField('Изображение', upload_to='images/', default='')
+    image_one = models.ImageField('Изображение', upload_to='images/', default='')
+    image_two = models.ImageField('Доп.Изображение', upload_to='images/', default='', blank=True,)
     def __str__(self):
         return self.greeting
 

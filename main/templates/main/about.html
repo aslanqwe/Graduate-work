@@ -12,7 +12,7 @@
     </div>
     <div class="row pt-3">
         <div class="col-md-4 col-sm-12 ">
-            <img class="img-fluid" src="{{ about.image.url }}" alt="о нас"
+            <img class="img-fluid" src="{{ about.image_one.url }}" alt="о нас"
                  style="max-width: 100%; height: auto">
         </div>
         <div class="col-md-8 col-sm-12 ">
@@ -20,11 +20,10 @@
                 {{ about.full_text|linebreaks }}
             </p>
         </div>
-
         <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
-
+    {% if about.image_two and about.disc_text %}
         <div class="col-md-4 col-sm-12 ">
-            <img class="img-fluid" src="{{ about.image.url }}" alt="о нас"
+            <img class="img-fluid" src="{{ about.image_two.url }}" alt="о нас"
                  style="max-width: 100%; height: auto">
         </div>
         <div class="col-md-8 col-sm-12 ">
@@ -33,7 +32,6 @@
                     <span style="color: #008484;">
                         Разнообразная деятельность
                     </span>
-
                 </strong>
             </h3>
             <p>
@@ -41,6 +39,7 @@
             </p>
         </div>
         <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
+    {% endif %}
             <h3 class="text-center">
                 <strong>
                     <span style="color: #008484;">
