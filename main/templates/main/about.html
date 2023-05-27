@@ -4,5 +4,50 @@
 
 
 {% block content %}
+<div class="container pt-5 d-flex flex-column min-vh-100">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h4 class="underline">{{ title }}</h4>
+        </div>
+    </div>
+    <div class="row pt-3">
+        <div class="col-md-4 col-sm-12 ">
+            <img class="img-fluid" src="{{ about.image.url }}" alt="о нас"
+                 style="max-width: 100%; height: auto">
+        </div>
+        <div class="col-md-8 col-sm-12 ">
+            <p>
+                {{ about.full_text|linebreaks }}
+            </p>
+        </div>
 
+        <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
+
+        <div class="col-md-4 col-sm-12 ">
+            <img class="img-fluid" src="{{ about.image.url }}" alt="о нас"
+                 style="max-width: 100%; height: auto">
+        </div>
+        <div class="col-md-8 col-sm-12 ">
+            <h3>
+                <strong>
+                    <span style="color: #008484;">
+                        Разнообразная деятельность
+                    </span>
+
+                </strong>
+            </h3>
+            <p>
+                {{ about.disc_text|linebreaks }}
+            </p>
+        </div>
+        <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
+            <h3 class="text-center">
+                <strong>
+                    <span style="color: #008484;">
+                        Мы поможем в полной мере раскрыть уникальные качества Вашего малыша, обнаружить и совершенствовать его талант!
+                    </span>
+                </strong>
+            </h3>
+    </div>
+</div>
 {% endblock %}

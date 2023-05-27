@@ -31,17 +31,17 @@
         </div>
         {% endif %}
         <div class="col-md-12 col-sm-12 pt-5">
-            {% if forparents.title == 'Условие приема' %}
-                <h4>
+            {% if forparents.title == 'Условия приема' %}
+                <h3>
                     <strong>
                         <span style="color: #008484;">Для оформления ребёнка в детский сад необходимы следующие документы:</span>
                     </strong>
-                </h4>
+                </h3>
             {% endif %}
             <p>
                 {{ forparents.disc_text|linebreaks}}
             </p>
-            <h1><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
+            <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
         </div>
     </div>
 </div>

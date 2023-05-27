@@ -34,6 +34,23 @@ class Director(models.Model):
         verbose_name = 'Директор'
         verbose_name_plural = 'Директор'
 
+class About(models.Model):
+    greeting = models.CharField('Приветствие', blank=False, null=False, max_length=90)
+    full_text = models.TextField('Описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
+                                 blank=False, null=False)
+    disc_text = models.TextField('Доп.описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
+                                 blank=True, default='')
+    image = models.ImageField('Изображение', upload_to='images/', default='')
+    def __str__(self):
+        return self.greeting
+
+    def get_absolute_url(self):
+        return f'/about/{self.id}'
+
+    class Meta:
+        verbose_name = 'О нас'
+        verbose_name_plural = 'О нас'
+
 
 class Clubs(models.Model):
     name_clubs = models.CharField('Название кружка', blank=False, null=False, max_length=30)
