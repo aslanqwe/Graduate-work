@@ -34,9 +34,26 @@
 
 {% endblock %}
 
+{# Comments #}
+<div class="container pt-5">
+   <div id="disqus_thread">
+
+   </div>
+</div>
+<script>
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://diami.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+{# Comments #}
+
 {# Footer #}
 {% include 'include/footer.html' %}
-
+<script id="dsq-count-scr" src="//diami.disqus.com/count.js" async></script>
 <script src="{% static 'main/js/script.js' %}"></script>
 </body>
 </html>

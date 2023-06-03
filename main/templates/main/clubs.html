@@ -6,29 +6,23 @@
 
 
 {% block content %}
-<div class="container pt-5 d-flex flex-column min-vh-100">
+<div class="container pt-5">
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <h4 class="underline">{{ title }}</h4>
         </div>
     </div>
     <div class="row pt-3">
-        <div class="col-md-4 col-sm-12 ">
-            <img class="img-fluid" src="{{ clubs.image.url }}" alt="Кружок"
-                 style="max-width: 100%; height: auto">
-        </div>
-        <div class="col-md-8 col-sm-12 ">
+        <div class="col-lg-12 pt-4 pt-lg-0 col-sm-12 col-md-12">
+            <figure class="figure w-50 float-end m-3">
+                <img src="{{ clubs.image.url }}" class="figure-img img-fluid rounded img-thumbnail" alt="Кружки" style="max-width: 100%; height: auto">
+            </figure>
             <p>
                 {{ clubs.full_text|linebreaks }}
             </p>
         </div>
-        <div class="col-md-12 col-sm-12">
-            <p>
-                {{ clubs.disc_text|linebreaks }}
-            </p>
-            <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
-        </div>
     </div>
+    <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
 </div>
 
 {% endblock %}

@@ -1,10 +1,4 @@
-function removeClassOnSmallScreens() {
-    if (window.innerWidth > 768) {
-        document.getElementById('collapseHeader').style.display = 'none';
-    } else {
-        document.getElementById('collapseHeader').remove.style.display = 'none';
-    }
-}
+
 // Scroll
 const btnUp = {
     el: document.querySelector('.btn-up'),
@@ -36,7 +30,4 @@ const btnUp = {
     }
 }
 btnUp.addEventListener();
-
-window.addEventListener('resize', removeClassOnSmallScreens);
-removeClassOnSmallScreens();
 
