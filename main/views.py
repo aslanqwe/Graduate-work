@@ -38,24 +38,3 @@ def for_parents(request, pk):
     return render(request, 'main/forparents.html', {'title': forparents.title, 'forparents': forparents})
 
 
-
-# class NewsDetailView(DetailView):
-#     model = Articles
-#     template_name = 'main/details_view.html'
-#     context_object_name = 'article'
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['title'] = 'Новости'
-#         return context
-
-# class ClubsDetailView(DetailView):
-#     model = Clubs
-#     template_name = 'main/clubs.html'
-#     context_object_name = 'clubs_kids'
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['title'] = self.object.name_clubs
-#         return context
-
-

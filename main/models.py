@@ -5,7 +5,7 @@ from django.core.validators import MinLengthValidator
 class Articles(models.Model):
     title = models.CharField('Название', max_length=50)
     full_text = models.TextField('Статья', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
-                                 blank=False, null=False)
+        blank=False, null=False)
     date = models.DateTimeField('Дата публикации')
     image = models.ImageField('Изображение', upload_to='images/', default='')
 
@@ -22,7 +22,7 @@ class Articles(models.Model):
 class About(models.Model):
     title = models.CharField('Название', max_length=50, blank=True)
     full_text = models.TextField('Описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
-                                 blank=False, null=False)
+        blank=False, null=False)
     image = models.ImageField('Изображение', upload_to='images/')
     def __str__(self):
         return self.title
@@ -70,8 +70,6 @@ class ForParents(models.Model):
     title = models.CharField('Название', blank=False, null=False, max_length=50)
     full_text = models.TextField('Описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
                                  blank=False, null=False)
-    disc_text = models.TextField('Доп.описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
-                                 blank=True, default='')
     image = models.ImageField('Изображение', upload_to='images/', blank=True)
     def __str__(self):
         return self.title

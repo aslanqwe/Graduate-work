@@ -24,17 +24,19 @@
     {% for el in about %}
     <div class="row pt-3">
         <div class="col-md-4 col-sm-12">
-            <img class="img-fluid" src="{{ el.image.url }}" alt="О нас"
-                 style="max-width: 100%; height: auto">
+            <img class="img-fluid" src="{{ el.image.url }}" alt="О нас" style="max-width: 100%; height: auto">
         </div>
         <div class="col-md-8 col-sm-12 ">
+            {% if el.title != 'Пусто' %}
             <h3>
                 <strong>
-                        <span style="color: #008484;">
-                            {{ el.title }}
-                        </span>
+                    <span style="color: #008484;">
+                        {{ el.title }}
+                    </span>
                 </strong>
             </h3>
+            {% endif %}
+
             <p>
                 {{ el.full_text|linebreaks }}
             </p>
@@ -45,9 +47,9 @@
     {% else %}
     <h3 class="text-center">
         <strong>
-                <span style="color: #008484;">
-                    Нет записей
-                </span>
+            <span style="color: #008484;">
+                Нет записей
+            </span>
         </strong>
     </h3>
     {% endif %}

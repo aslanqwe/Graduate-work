@@ -6,7 +6,7 @@
 
 
 {% block content %}
-<div class="container pt-5 d-flex flex-column min-vh-100">
+<div class="container pt-5">
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <h4 class="underline">{{ title }}</h4>
@@ -14,36 +14,23 @@
     </div>
     <div class="row pt-3">
         {% if forparents.image %}
-        <div class="col-md-4 col-sm-12 ">
-            <img class="img-fluid" src="{{ forparents.image.url }}" alt="Картинка"
-                 style="max-width: 100%; height: auto">
-        </div>
-        <div class="col-md-8 col-sm-12 ">
+        <div class="col-lg-12 pt-4 pt-lg-0 col-sm-12 col-md-12">
+            <figure class="figure w-50 float-end m-3">
+                <img src="{{ forparents.image.url }}" class="figure-img img-fluid rounded img-thumbnail" alt="Кружки"
+                    style="max-width: 70%; height: auto">
+            </figure>
             <p>
                 {{ forparents.full_text|linebreaks }}
             </p>
         </div>
         {% else %}
-        <div class="col-md-12 col-sm-12 text-center">
+        <div class="col-md-12 col-sm-12">
             <p>
-                <strong>{{ forparents.full_text|linebreaks }}</strong>
+                {{ forparents.full_text|linebreaks }}
             </p>
         </div>
         {% endif %}
-        <div class="col-md-12 col-sm-12 pt-5">
-            {% if forparents.title == 'Условия приема' %}
-                <h3>
-                    <strong>
-                        <span style="color: #008484;">Для оформления ребёнка в детский сад необходимы следующие документы:</span>
-                    </strong>
-                </h3>
-            {% endif %}
-            <p>
-                {{ forparents.disc_text|linebreaks}}
-            </p>
-            <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
-        </div>
     </div>
+    <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
 </div>
-
 {% endblock %}
