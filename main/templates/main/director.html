@@ -14,18 +14,14 @@
     <div class="row pt-3">
         <div class="col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
             <a href="#">
-                <img width="350" class="img-fluid" src="{{ director.image.url }}" height="410"
-                     title="Директор" alt="Директор" style="margin:5px;">
+                <img class="img-fluid" src="{{ director.image.url }}"
+                     title="Директор" alt="Директор" style="max-width: 100%; height: auto">
             </a>
         </div>
         <div class="col-md-12 col-sm-12 ">
-            <p><strong>Дорогие родители, коллеги и гости!</strong></p>
             <p>
-                {{ director.full_text|linebreaks }}
+                {{ director.full_text|safe }}
             </p>
-            <p><strong>С уважением,</strong></p>
-            <p><strong>{{ director.full_name }}</strong></p>
-            <p><strong>Директор детского сада "ДиАми"</strong></p>
         </div>
     </div>
     <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>

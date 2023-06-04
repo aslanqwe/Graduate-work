@@ -54,9 +54,8 @@
                 </a>
             </div>
             <div class="col-md-8 col-sm-12">
-                <p><strong>Дорогие родители, коллеги и гости!</strong></p>
                 <p>
-                    {{ director.full_text|truncatechars:1000|linebreaks }}
+                    {{ director.full_text|truncatechars:1000|safe }}
                 </p>
                 <p style="text-align: right;">
                     <a href="{% url 'director' %}" class="text-primary">Подробнее</a>
@@ -84,10 +83,10 @@
                                     <h4>{{ el.title }}</h4>
                                 </div>
                                 <span class="club__text">
-                                    {{ el.full_text|truncatechars:150|linebreaks }}
+                                    {{ el.full_text|truncatechars:150|safe }}
                                 </span>
-                                <a href="{% url 'news_detail' el.id %}" class="btn btn-outline-primary">Читать подробнее</a>
                             </div>
+                            <a href="{% url 'news_detail' el.id %}" class="btn btn-outline-primary  m-3">Читать подробнее</a>
                         </div>
                     </li>
                 {% endfor %}
@@ -117,10 +116,9 @@
                                 <div class="club__title">
                                     <h4>{{ el.name_clubs }}</h4>
                                 </div>
-                                <span class="club__text">{{ el.full_text|truncatechars:150|linebreaks }}</span>
-                                <a href="{% url 'clubs_detail' el.id %}" class="btn btn-outline-primary">Читать
-                                    подробнее</a>
+                                <span class="club__text">{{ el.full_text|truncatechars:150|safe }}</span>
                             </div>
+                            <a href="{% url 'clubs_detail' el.id %}" class="btn btn-outline-primary  m-3">Читать подробнее</a>
                         </div>
                     </li>
                 {% endfor %}

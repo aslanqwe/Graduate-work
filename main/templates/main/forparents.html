@@ -20,13 +20,13 @@
                     style="max-width: 70%; height: auto">
             </figure>
             <p>
-                {{ forparents.full_text|linebreaks }}
+                {{ forparents.full_text|safe }}
             </p>
         </div>
         {% else %}
         <div class="col-md-12 col-sm-12">
             <p>
-                {{ forparents.full_text|linebreaks }}
+                {{ forparents.full_text|safe }}
             </p>
         </div>
         {% endif %}

@@ -10,18 +10,33 @@
             <h4 class="underline">{{ title }}</h4>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h3>
+                <strong>
+                    <span style="color: #008484;">
+                        {{ article.title }}
+                    </span>
+                </strong>
+            </h3>
+            <p class="text-left">
+                <i class="fa-sharp fa-solid fa-clock" style="color: #008484"></i>
+                Дата публикации: {{ article.date }}
+            </p>
+        </div>
+        <div class="col-md-12 col-sm-12 text-center">
+                <figure class="figure m-3">
+                    <img src="{{ article.image.url }}" class="figure-img img-fluid rounded img-thumbnail" alt="Новости"
+                         style="max-width: 100%; height: auto">
+                </figure>
+        </div>
+    </div>
+
     <!--  col-lg-7 pt-4 pt-lg-0  -->
     <div class="row pt-3">
         <div class="col-lg-12 pt-4 pt-lg-0 col-sm-12 col-md-12">
-            <h3><strong><span style="color: #008484;">
-                        {{ article.title }}
-            </span></strong>
-            </h3>
-            <figure class="figure w-50 float-end m-3">
-                <img src="{{ article.image.url }}" class="figure-img img-fluid rounded img-thumbnail" alt="Новости" style="max-width: 100%; height: auto">
-            </figure>
             <p>
-                {{ article.full_text|linebreaks }}
+                {{ article.full_text|safe }}
             </p>
         </div>
     </div>

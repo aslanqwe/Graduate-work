@@ -27,7 +27,7 @@
                 </h3>
                 <p class="text-left"><i class="fa-sharp fa-solid fa-clock" style="color: #008484"></i> Дата публикации: {{ el.date }}</p>
                 <p>
-                    {{ el.full_text|truncatechars:500|linebreaks }}
+                    {{ el.full_text|truncatechars:500|safe }}
                 </p>
                 <p style="text-align: left;">
                     <a href="{% url 'news_detail' el.id %}" class="text-primary">Подробнее</a>

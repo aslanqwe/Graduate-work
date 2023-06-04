@@ -33,8 +33,8 @@ def clubs_detail(request, pk):
     clubs = Clubs.objects.get(pk=pk)
     return render(request, 'main/clubs.html', {'title': clubs.name_clubs, 'clubs': clubs,})
 
-def for_parents(request, pk):
-    forparents = ForParents.objects.get(pk=pk)
+def for_parents(request, title):
+    forparents = ForParents.objects.get(title=title)
     return render(request, 'main/forparents.html', {'title': forparents.title, 'forparents': forparents})
 
 

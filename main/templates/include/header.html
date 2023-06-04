@@ -18,7 +18,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         {% for x in roditeli %}
-                            <li><a class="dropdown-item" href="{% url 'for_parents' x.id %}">{{ x.title }}</a></li>
+                            <li><a class="dropdown-item" href="{% url 'for_parents' x.title %}">{{ x.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </li>
