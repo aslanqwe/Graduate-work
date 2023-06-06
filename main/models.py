@@ -20,23 +20,11 @@ class Articles(models.Model):
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
 
-class About(models.Model):
-    title = models.CharField('Название', max_length=50, blank=True)
-    full_text = RichTextField('Описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
-        blank=False, null=False)
-    image = models.ImageField('Изображение', upload_to='images/')
-    def __str__(self):
-        return self.title
-    def get_absolute_url(self):
-        return f'/about/{self.id}'
-    class Meta:
-        verbose_name = 'О нас'
-        verbose_name_plural = 'О нас'
 
 
 class Director(models.Model):
-    full_name = models.CharField('ФИО', blank=False, null=False, max_length=70)
-    full_text = RichTextField('Приветственная речь',
+    full_name = models.CharField('Название', blank=False, null=False, max_length=70)
+    full_text = RichTextUploadingField('Приветственная речь',
                                  validators=[MinLengthValidator(10, 'Введите больше 10 символов')], blank=False,
                                  null=False)
     image = models.ImageField('Ваше изображение', upload_to='images/', default='')
@@ -52,7 +40,7 @@ class Director(models.Model):
 
 class Clubs(models.Model):
     name_clubs = models.CharField('Название кружка', blank=False, null=False, max_length=30)
-    full_text = RichTextField('Описание кружка', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
+    full_text = RichTextUploadingField('Описание кружка', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
                                  blank=False, null=False)
     image = models.ImageField('Изображение', upload_to='images/', default='')
 
@@ -65,13 +53,24 @@ class Clubs(models.Model):
     class Meta:
         verbose_name = 'Кружок'
         verbose_name_plural = 'Кружки'
+        
+class About(models.Model):
+    title = models.CharField('Название', max_length=50)
+    full_text = RichTextUploadingField('Описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
+        blank=False, null=False)
+    def __str__(self):
+        return self.title
+    def get_absolute_url(self):
+        return f'/about/{self.id}'
+    class Meta:
+        verbose_name = 'О нас'
+        verbose_name_plural = 'О нас'
 
 
 class ForParents(models.Model):
     title = models.CharField('Название', blank=False, null=False, max_length=50)
-    full_text = RichTextField('Описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
+    full_text = RichTextUploadingField('Описание', validators=[MinLengthValidator(10, 'Введите больше 10 символов')],
                                  blank=False, null=False)
-    image = models.ImageField('Изображение', upload_to='images/', blank=True)
     def __str__(self):
         return self.title
     def get_absolute_url(self):

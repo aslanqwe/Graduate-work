@@ -3,133 +3,121 @@
 {% block title %} {{ title }} {% endblock %}
 
 {% block content %}
-    {#  Carousel  #}
-    <div class="container pt-5">
-        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{% static 'main/images/img1.png' %}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'main/images/img2.jpg' %}" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="{% static 'main/images/img3.jpg' %}" class="d-block w-100" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+{# Carousel #}
+<div class="container  pt-5">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 text-center">
+            <h4 class="underline">Наша Галерея</h4>
         </div>
     </div>
-    {#Carousel#}
+    <div class="menu">
+        <div class="menu--wrapper">
+            {% for x in news|slice:":10" %}
+                    <div class="menu--item">
+                        <figure>
+                            <img src="{{ x.image.url }}" alt="" />
+                        </figure>
+                    </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
-    {#Director Words#}
-    <div class="container pt-5">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <h4 class="underline">Приветственное слово директора</h4>
-            </div>
-        </div>
-        <div class="row pt-3">
-            <div class="col-md-4 col-sm-12">
-                <a href="#">
-                    <img width="350" class="img-fluid" src="{{ director.image.url }}" height="410"
-                         title="Директор" alt="Директор" style="margin:5px;">
-                </a>
-            </div>
-            <div class="col-md-8 col-sm-12">
-                <p>
-                    {{ director.full_text|truncatechars:1000|safe }}
-                </p>
-                <p style="text-align: right;">
-                    <a href="{% url 'director' %}" class="text-primary">Подробнее</a>
-                </p>
-            </div>
-        </div>
-    </div>
-    {#Director Words#}
 
-    {#  News Block  #}
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <h4 class="underline">Новости</h4>
-            </div>
-        </div>
-        <ul class="clubs">
-            {% if news %}
-                {% for el in news|slice:":3" %}
-                    <li class="clubs__item">
-                        <div class="club">
-                            <div class="club__image" style="background-image: url( {{ el.image.url }} )"></div>
-                            <div class="club__content">
-                                <div class="club__title">
-                                    <h4>{{ el.title }}</h4>
-                                </div>
-                                <span class="club__text">
-                                    {{ el.full_text|truncatechars:150|safe }}
-                                </span>
-                            </div>
-                            <a href="{% url 'news_detail' el.id %}" class="btn btn-outline-primary  m-3">Читать подробнее</a>
-                        </div>
-                    </li>
-                {% endfor %}
-            {% else %}
-                <h4>Нет новостей</h4>
-            {% endif %}
-        </ul>
-    </div>
-    {#  News Block  #}
+{#Carousel#}
 
-    {#  Clubs  #}
-    <div class="container">
-        <div class="row pt-5">
-            <div class="col-md-12 col-sm-12 text-center">
-                <h4 class="underline">Что предлагает наш детский сад?</h4>
-            </div>
+{#Director Words#}
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h4 class="underline">Приветственное слово директора</h4>
         </div>
     </div>
-    <div class="container">
-        <ul class="clubs">
-            {% if clubs %}
-                {% for el in clubs|slice:":3" %}
-                    <li class="clubs__item">
-                        <div class="club">
-                            <div class="club__image" style="max-width: 100%; height: auto; background-image: url( {{ el.image.url }} )"></div>
-                            <div class="club__content">
-                                <div class="club__title">
-                                    <h4>{{ el.name_clubs }}</h4>
-                                </div>
-                                <span class="club__text">{{ el.full_text|truncatechars:150|safe }}</span>
-                            </div>
-                            <a href="{% url 'clubs_detail' el.id %}" class="btn btn-outline-primary  m-3">Читать подробнее</a>
-                        </div>
-                    </li>
-                {% endfor %}
-            {% else %}
-                <h4>Нет кружков</h4>
-            {% endif %}
-        </ul>
+    <div class="row pt-3">
+        <div class="col-md-4 col-sm-12">
+            <a href="#">
+                <img width="350" class="img-fluid" src="{{ director.image.url }}" height="410" title="Директор"
+                    alt="Директор" style="margin:5px;">
+            </a>
+        </div>
+        <div class="col-md-8 col-sm-12">
+            <p>
+                {{ director.full_text|truncatechars:1000|safe }}
+            </p>
+            <p style="text-align: right;">
+                <a href="{% url 'director' %}" class="text-primary">Подробнее</a>
+            </p>
+        </div>
     </div>
-    {#  Clubs  #}
+</div>
+{#Director Words#}
+
+{# News Block #}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12">
+            <h4 class="underline">Новости</h4>
+        </div>
+    </div>
+    <ul class="clubs">
+        {% if news %}
+        {% for el in news|slice:":3" %}
+        <li class="clubs__item">
+            <div class="club">
+                <div class="club__image" style="background-image: url( {{ el.image.url }} )"></div>
+                <div class="club__content">
+                    <div class="club__title">
+                        <h4>{{ el.title }}</h4>
+                    </div>
+                    <span class="club__text">
+                        {{ el.full_text|truncatechars:150|safe }}
+                    </span>
+                </div>
+                <a href="{% url 'news_detail' el.id %}" class="btn btn-outline-primary  m-3">Читать подробнее</a>
+            </div>
+        </li>
+        {% endfor %}
+        {% else %}
+        <h4>Нет новостей</h4>
+        {% endif %}
+    </ul>
+</div>
+{# News Block #}
+
+{# Clubs #}
+<div class="container">
+    <div class="row pt-5">
+        <div class="col-md-12 col-sm-12 text-center">
+            <h4 class="underline">Что предлагает наш детский сад?</h4>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <ul class="clubs">
+        {% if clubs %}
+        {% for el in clubs|slice:":3" %}
+        <li class="clubs__item">
+            <div class="club">
+                <div class="club__image"
+                    style="max-width: 100%; height: auto; background-image: url( {{ el.image.url }} )"></div>
+                <div class="club__content">
+                    <div class="club__title">
+                        <h4>{{ el.name_clubs }}</h4>
+                    </div>
+                    <span class="club__text">{{ el.full_text|truncatechars:150|safe }}</span>
+                </div>
+                <a href="{% url 'clubs_detail' el.id %}" class="btn btn-outline-primary  m-3">Читать подробнее</a>
+            </div>
+        </li>
+        {% endfor %}
+        {% else %}
+        <h4>Нет кружков</h4>
+        {% endif %}
+    </ul>
+</div>
+{# Clubs #}
 {% endblock %}
 
 {% block header %}
-   {% include 'include/header.html' with clubs=clubs %}
+{% include 'include/header.html' with clubs=clubs %}
 {% endblock %}

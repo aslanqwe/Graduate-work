@@ -3,55 +3,19 @@
 
 
 {% block content %}
-<div class="container pt-5 d-flex flex-column min-vh-100">
+<div class="container pt-5">
     <div class="row">
         <div class="col-md-12 col-sm-12">
             <h4 class="underline">{{ title }}</h4>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12 col-sm-12">
-            <h3 class="text-center">
-                <strong>
-                    <span style="color: #008484;">
-                        Рады приветствовать Вас в нашем замечательном детском саду «ДиАми»!
-                    </span>
-                </strong>
-            </h3>
-        </div>
-    </div>
-    {% if about %}
-    {% for el in about %}
     <div class="row pt-3">
-        <div class="col-md-4 col-sm-12">
-            <img class="img-fluid" src="{{ el.image.url }}" alt="О нас" style="max-width: 100%; height: auto">
-        </div>
-        <div class="col-md-8 col-sm-12 ">
-            {% if el.title != 'Пусто' %}
-            <h3>
-                <strong>
-                    <span style="color: #008484;">
-                        {{ el.title }}
-                    </span>
-                </strong>
-            </h3>
-            {% endif %}
-
+        <div class="col-lg-12 pt-4 pt-lg-0 col-sm-12 col-md-12">
             <p>
-                {{ el.full_text|safe }}
+                {{ about.full_text|safe }}
             </p>
         </div>
-        <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
     </div>
-    {% endfor %}
-    {% else %}
-    <h3 class="text-center">
-        <strong>
-            <span style="color: #008484;">
-                Нет записей
-            </span>
-        </strong>
-    </h3>
-    {% endif %}
+    <h1 class="py-5 px-5"><span><i class="fas fa-sun" style="color: #fbff00;"></i></span></h1>
 </div>
 {% endblock %}

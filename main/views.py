@@ -15,7 +15,7 @@ def index(request):
     forparents = ForParents.objects.all()
     return render(request, 'main/index.html', {'title': 'Детский сад "ДиАми"', 'news': news, 'director': director, 'clubs': clubs, 'forparents': forparents})
 def about(request):
-    about = About.objects.all()
+    about = About.objects.first()
     return render(request, 'main/about.html', {'title': 'О нас', 'about': about})
 def detail_view(request, pk):
     article = Articles.objects.get(pk=pk)
